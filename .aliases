@@ -1,0 +1,13 @@
+alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
+alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
+alias path="echo $PATH | tr : '\n'"
+alias v='vagrant'
+alias vu='vagrant up'
+alias vp='vagrant provision'
+alias vd='vagrant destroy'
+alias vss='vagrant ssh'
+alias gaa='git add . -u'
+alias vr='vagrant reload'
+alias vpl='vagrant plugin'
+alias k='bundle exec kitchen'
+alias knode='knife node list'

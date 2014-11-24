@@ -1,0 +1,10 @@
+kdel () {
+  if [ $1 = "all" ]; then
+    for i in `knife node list`; do
+      yes | knife node delete $i && yes | knife client delete $i;
+    done
+  else
+    yes | knife node delete $1 && yes | knife client delete $1;
+  fi
+}
+
