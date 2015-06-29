@@ -1,8 +1,9 @@
 # ZSH Theme - Preview: http://gyazo.com/8becc8a7ed5ab54a0262a470555c3eed.png
-local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
+setopt promptsubst
+autoload -U colors && colors # Enable colors in prompt
 
-local current_time='%{$terminfo[bold]$fg[green]%}%*$reset_color%}'
-local current_dir='%{$terminfo[bold]$fg[blue]%} %~%{$reset_color%}'
+local current_time='%{$fg_bold[green]%}%*$reset_color%}'
+local current_dir='%{$fg_bold[blue]%} %~%{$reset_color%}'
 
 GIT_PROMPT_SYMBOL="%{$fg[blue]%}±"
 GIT_PROMPT_PREFIX="%{$fg[green]%}[%{$reset_color%}"
@@ -44,6 +45,6 @@ git_prompt_string() {
 }
 
 PROMPT="╭─(${current_time}) ${current_dir}
-╰─%(?..%F{red})$%f "
-RPS1=$(git_prompt_string)
+╰─%(?..$fg[red])$%f "
+RPS1='$(git_prompt_string)'
 
