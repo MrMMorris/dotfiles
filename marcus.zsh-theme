@@ -2,15 +2,15 @@
 setopt promptsubst
 autoload -U colors && colors # Enable colors in prompt
 
-local current_time='%{$fg_bold[green]%}%*$reset_color%}'
-local current_dir='%{$fg_bold[blue]%} %~%{$reset_color%}'
+local current_time='%B%F{green}%*%b%f'
+local current_dir='%B%F{blue}  %~%b%f'
 
-GIT_PROMPT_SYMBOL="%{$fg[blue]%}±"
-GIT_PROMPT_PREFIX="%{$fg[green]%}[%{$reset_color%}"
-GIT_PROMPT_SUFFIX="%{$fg[green]%}]%{$reset_color%}"
-GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}●%{$reset_color%}"
-GIT_PROMPT_MODIFIED="%{$fg_bold[yellow]%}●%{$reset_color%}"
-GIT_PROMPT_STAGED="%{$fg_bold[green]%}●%{$reset_color%}"
+GIT_PROMPT_SYMBOL="%F{blue}±"
+GIT_PROMPT_PREFIX="%F{green}[%f"
+GIT_PROMPT_SUFFIX="%F{green]%}]%f"
+GIT_PROMPT_UNTRACKED="%B%F{red]%}●%b%f"
+GIT_PROMPT_MODIFIED="%B%F{yellow]%}●%b%f"
+GIT_PROMPT_STAGED="%B%F{green]%}●%b%f"
 
 parse_git_state() {
 
@@ -41,10 +41,10 @@ parse_git_branch() {
 
 git_prompt_string() {
   local git_where="$(parse_git_branch)"
-  [ -n "$git_where" ] && echo "$GIT_PROMPT_SYMBOL$(parse_git_state)$GIT_PROMPT_PREFIX%{$fg[yellow]%}${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SUFFIX"
+  [ -n "$git_where" ] && echo "$GIT_PROMPT_SYMBOL$(parse_git_state)$GIT_PROMPT_PREFIX%F{yellow}${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SUFFIX"
 }
 
 PROMPT="╭─(${current_time}) ${current_dir}
-╰─%(?..$fg[red])$%f "
+╰─%(?..%F{red})$%f "
 RPS1='$(git_prompt_string)'
 
