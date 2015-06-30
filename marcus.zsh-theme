@@ -2,8 +2,8 @@
 setopt promptsubst
 autoload -U colors && colors # Enable colors in prompt
 
-local current_time='%B%F{green}%*%b%f'
-local current_dir='%B%F{blue}  %~%b%f'
+local current_time='%F{037}%*%b%f'
+local current_dir='%F{125}  %~%b%f'
 
 GIT_PROMPT_SYMBOL="%F{blue}±"
 GIT_PROMPT_PREFIX="%F{green}[%f"
