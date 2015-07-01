@@ -8,3 +8,7 @@ kdel () {
   fi
 }
 
+attach () {
+  docker exec -it $1 bash 
+}
+

@@ -1,5 +1,4 @@
 alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
-alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
 alias path="echo $PATH | tr : '\n'"
 alias v='vagrant'
 alias vu='vagrant up'
@@ -11,3 +10,10 @@ alias vr='vagrant reload'
 alias vpl='vagrant plugin'
 alias k='bundle exec kitchen'
 alias knode='knife node list'
+alias dps='docker ps'
+alias drm='docker rm'
+alias drmi='docker rmi'
+alias b2d='boot2docker'
+alias comp='docker-compose'
+autoload -U zmv
+alias mmv='noglob zmv -W'
